@@ -3,7 +3,7 @@ DEBUG = -g -DDEBUG
 
 EXPERIMENTS = -DEXPERIMENTS
 
-CFLAGS=-c -Wall
+CFLAGS=-c -Wall -O3
 LDFLAGS=-Wall -lm
 
 EXT=
