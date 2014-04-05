@@ -1,9 +1,10 @@
-CC=g++
-DEBUG = -g -DDEBUG
+
 
 EXPERIMENTS = -DEXPERIMENTS
 
 CFLAGS=-c -Wall -O3
+CFLAGSDEBUG = -c -Wall -O0 -g -DDEBUG
+
 LDFLAGS=-Wall -lm
 
 EXT=
@@ -19,8 +20,11 @@ EXECUTABLE=
 #all: CFLAGS += -O9
 all: $(SOURCES) $(MAINSRC) $(MAINOBJ) $(OBJECTS) $(EXECUTABLE) 
 
+debug: CFLAGS=$(CFLAGSDEBUG)
+debug: clean all
+
 .cpp.o:
-	$(CC) $(CFLAGS) $< -o $@
+	$(CXX) $(CFLAGS) $< -o $@
 
 clean: cleanobj cleanexe
 
