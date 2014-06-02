@@ -1,3 +1,11 @@
 This code have been extracted from the Poly IR Toolkit
 
 http://code.google.com/p/poly-ir-toolkit/
+
+
+
+
+Known bugs:
+ - Some compressors like s9, s16, vbyte can save integers up to 28 bits. So, if you save larger values,
+   sometimes the code will be killed by assert, and other times will save a bad representation of the
+   number been encoded. Check your output after each compression.
