@@ -17,7 +17,7 @@ cmake_minimum_required(VERSION 2.8.7)
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include(AppendCompilerFlags)
 
-project(compress CXX)
+project(compresslists CXX)
 
 # C++11 compiler Check
 if(NOT CMAKE_CXX_COMPILER_VERSION) # work around for cmake versions smaller than 2.8.10
@@ -53,10 +53,10 @@ endif()
 
 # Where libcds .h files can be found.
 include_directories(
-  ${cds_SOURCE_DIR}/compression_toolkit
-  ${cds_SOURCE_DIR})
+  ${compresslists_SOURCE_DIR}/compression_toolkit
+  ${compresslists_SOURCE_DIR})
 
-add_library(compress 
+add_library(compresslists 
  coding_policy.cpp
  compression_toolkit/coding_factory.cpp
  compression_toolkit/null_coding.cpp
@@ -68,5 +68,5 @@ add_library(compress
  compression_toolkit/unpack.cpp
  compression_toolkit/vbyte_coding.cpp
 )
-target_include_directories(compress PUBLIC compression_toolkit)
-target_include_directories(compress PUBLIC .)
+target_include_directories(compresslists PUBLIC compression_toolkit)
+target_include_directories(compresslists PUBLIC .)
